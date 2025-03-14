@@ -7,24 +7,24 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * The `FastTypingGame` class serves as the main entry point for the JavaFX application.
- * It initializes and launches a game where players attempt to type words as quickly as possible.
+ * The {@code FastTypingGame} class serves as the main entry point for the JavaFX application.
+ * It initializes and launches the game interface where players must type words quickly.
  *
  * @author Jhon Steven Angulo Nieves
  * @version 1.0
- *
+ * @since 1.0
+ * @see javafx.application.Application
  */
-
 public class FastTypingGame extends Application {
 
     /**
-     * The `start` method is the entry point for the JavaFX framework.
-     * It loads the FXML resource to set up the game's user interface and displays the primary stage.
+     * Starts the JavaFX application by loading the FXML file and displaying the primary stage.
      *
-     * @param primaryStage The main window for the application.
-     * @throws Exception if the FXML resource cannot be loaded.
+     * @param primaryStage The main window of the application.
+     * @throws Exception If the FXML file cannot be loaded.
+     * @see javafx.stage.Stage
+     * @since 1.0
      */
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/ui.fxml"));
@@ -35,12 +35,12 @@ public class FastTypingGame extends Application {
     }
 
     /**
-     * The `main` method serves as the application entry point.
-     * It calls the `launch` method to initialize and start the JavaFX application.
+     * The main entry point of the application, responsible for launching the JavaFX UI.
      *
      * @param args Command-line arguments passed to the application.
+     * @see javafx.application.Application#launch(String...)
+     * @since 1.0
      */
-
     public static void main(String[] args) {
         launch(args);
     }
