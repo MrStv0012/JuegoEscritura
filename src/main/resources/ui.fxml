@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoescritura.GameController">
+   <children>
+      <VBox alignment="CENTER" spacing="10" layoutX="20" layoutY="20">
+
+         <HBox spacing="50">
+            <Label text="Nivel: " style="-fx-font-weight: bold;"/>
+            <Label fx:id="levelLabel" text="1" style="-fx-font-weight: bold;"/>
+            <Label text="Tiempo: " style="-fx-text-fill: red; -fx-font-weight: bold;"/>
+            <Label fx:id="timeLabel" text="20s" style="-fx-text-fill: red; -fx-font-weight: bold;"/>
+            <Label fx:id="scoreLabel" layoutX="100" layoutY="50" text="Puntos: 0"/>
+         </HBox>
+
+         <HBox spacing="10">
+            <Label text="Sol: " style="-fx-text-fill: orange; -fx-font-weight: bold;"/>
+            <Label fx:id="sunLabel" text="☀☀☀☀☀" style="-fx-text-fill: orange; -fx-font-size: 16px;"/>
+         </HBox>
+
+         <Label fx:id="wordLabel" text="Palabra" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: blue;"/>
+         <TextField fx:id="inputField" promptText="Escribe aquí..."/>
+
+         <Label fx:id="messageLabel" text="" style="-fx-font-size: 14px;"/>
+      </VBox>
+   </children>
+</AnchorPane>

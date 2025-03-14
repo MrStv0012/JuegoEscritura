@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.juegoescritura.MainController" spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+    <Label fx:id="wordLabel" text="Palabra Aleatoria" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <TextField fx:id="inputField" promptText="Escribe aquí" style="-fx-font-size: 18px;"/>
+    <Button fx:id="validateButton" text="Validar" style="-fx-font-size: 18px;" onAction="#validateWord"/>
+    <Label fx:id="timerLabel" text="Tiempo restante: 20" style="-fx-font-size: 18px;"/>
+    <ProgressBar fx:id="sunProgress" progress="1.0" prefWidth="300"/>
+</VBox>
