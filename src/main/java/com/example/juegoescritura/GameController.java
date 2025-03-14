@@ -20,26 +20,40 @@ import java.util.Random;
  * @since 1.0
  * @see javafx.fxml.FXML
  */
-
 public class GameController {
 
+    /** Label displaying the current level. */
     @FXML private Label levelLabel;
+    /** Label displaying the current score. */
     @FXML private Label scoreLabel;
+    /** Label displaying the remaining time. */
     @FXML private Label timeLabel;
+    /** Label displaying the word to type. */
     @FXML private Label wordLabel;
+    /** ImageView displaying the sun's visual state based on errors. */
     @FXML private ImageView sunImageView;
+    /** TextField for user input. */
     @FXML private TextField inputField;
 
+    /** List of words used in the game. */
     private final String[] words = { "Luz", "Mil", "Rey", "Voz", "Pan", "Sol",
             "Aprender", "Nivel", "Juego", "Tiempo", "Código", "Rápido", "Texto", "JavaFX",
             "Escritura", "Xilofono", "Rápidamente", "Camaleónicamente", "Cálidamente", "Anímicamente", "Devuélveselas"};
+    /** Current level of the game. */
     private int level = 1;
+    /** Current score of the player. */
     private int score = 0;
+    /** Number of errors made by the player. */
     private int errors = 0;
+    /** Remaining time in the round. */
     private int timeLeft = 20;
+    /** Initial time set for each round. */
     private int initialTime = 20;
+    /** Timeline for managing the countdown timer. */
     private Timeline timeline;
+    /** Random instance for selecting words randomly. */
     private final Random random = new Random();
+    /** List of sun images representing error states. */
     private final String[] sunImages = {
             "/images/Sol_fade_0.png",
             "/images/Sol_fade_1.png",
@@ -55,8 +69,6 @@ public class GameController {
      * @since 1.0
      * @see javafx.fxml.FXML
      */
-
-
     public void initialize() {
         updateUI();
         setNewWord();
@@ -72,7 +84,6 @@ public class GameController {
      * @since 1.0
      * @see javafx.animation.Timeline
      */
-
     private void startTimer() {
         if (timeline != null) {
             timeline.stop();
@@ -96,7 +107,6 @@ public class GameController {
      *
      * @since 1.0
      */
-
     private void checkWord() {
         String enteredWord = inputField.getText().trim();
         if (enteredWord.equals(wordLabel.getText())) {
@@ -123,7 +133,6 @@ public class GameController {
      *
      * @since 1.0
      */
-
     private void handleIncorrect() {
         errors++;
         updateSun();
@@ -133,24 +142,10 @@ public class GameController {
     }
 
     /**
-     * Updates the user interface, including the level, score, and time labels.
-     *
-     * @since 1.0
-     */
-
-    private void updateUI() {
-        levelLabel.setText("Nivel: " + level);
-        scoreLabel.setText("Puntos: " + score);
-        timeLabel.setText("Tiempo: " + timeLeft + "s");
-    }
-
-    /**
      * Selects a random word from the predefined list and displays it on the game UI.
      *
      * @since 1.0
-     * @return A randomly selected word from the list.
      */
-
     private void setNewWord() {
         wordLabel.setText(words[random.nextInt(words.length)]);
     }
@@ -160,10 +155,20 @@ public class GameController {
      *
      * @since 1.0
      */
-
     private void updateSun() {
         int index = Math.min(errors, sunImages.length - 1);
         sunImageView.setImage(new Image(getClass().getResourceAsStream(sunImages[index])));
+    }
+
+
+    /**
+     * Updates the user interface, including level, score, and time labels.
+     * Ensures the UI reflects the current game state.
+     */
+    private void updateUI() {
+        levelLabel.setText("Nivel: " + level);
+        scoreLabel.setText("Puntos: " + score);
+        timeLabel.setText("Tiempo: " + timeLeft + "s");
     }
 
     /**
@@ -171,19 +176,16 @@ public class GameController {
      *
      * @since 1.0
      */
-
     @FXML
     private void restartGame() {
         level = 1;
         score = 0;
         errors = 0;
         timeLeft = initialTime;
-
         updateUI();
         setNewWord();
         updateSun();
         startTimer();
-
         inputField.setDisable(false);
         inputField.clear();
     }
@@ -194,11 +196,9 @@ public class GameController {
      *
      * @since 1.0
      */
-
     private void gameOver() {
         timeline.stop();
         wordLabel.setText("Juego Terminado");
         inputField.setDisable(true);
     }
 }
-
